@@ -9,7 +9,11 @@ def hello_world():
     # return "Hello, PEDRO!"
     return render_template("remember_index.html")
 
-@app.route("/blog")
+# @app.route("/blog")
+# def blog():    
+#     return "These are my thoughts on blogs!"
+
+@app.route("/favicon.ico")
 def blog():    
     return "These are my thoughts on blogs!"
 
