@@ -13,9 +13,9 @@ def hello_world():
 # def blog():    
 #     return "These are my thoughts on blogs!"
 
-@app.route("/favicon.ico")
-def blog():    
-    return "These are my thoughts on blogs!"
+# @app.route("/favicon.ico")
+# def blog():    
+#     return "These are my thoughts on blogs!"
 
 @app.route("/blog/2020/dogs")
 def blog2():    
