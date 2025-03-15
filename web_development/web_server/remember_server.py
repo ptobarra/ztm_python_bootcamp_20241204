@@ -1,13 +1,14 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 print(__name__)
 
-@app.route("/")
-def hello_world():
+@app.route("/<username>/<int:post_id>")
+def hello_world(username=None, post_id=None):
     # return "<p>Hello, World!</p>"
     # return "Hello, PEDRO!"
-    return render_template("remember_index.html")
+    # print(url_for('static', filename='bolt.ico'))
+    return render_template("remember_index.html", name=username, post_id=post_id)
 
 # @app.route("/blog")
 # def blog():    
