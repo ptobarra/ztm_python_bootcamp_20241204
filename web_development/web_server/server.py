@@ -80,7 +80,8 @@ def submit_form():
 # $env:FLASK_APP = 'C:\Users\TobarrP\ztm_python_bootcamp_20241204\web_development\web server\server.py'
 # $env:FLASK_ENV = "development"
 # python -m flask run
-# python -m flask --app '.\web_development\web server\server.py' run
+# python -m flask --app '.\web_development\web_server\server.py' run
+# python -m flask --app '.\web_development\web_server\server.py' run --debug
 # http://127.0.0.1:5000/
 
 # On Windows (Command Prompt)
