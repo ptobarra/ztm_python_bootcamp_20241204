@@ -1,4 +1,5 @@
-from flask import Flask, render_template, send_from_directory, url_for
+from flask import Flask, render_template, send_from_directory, url_for, request, abort, redirect
+import os
 
 # from dotenv import load_dotenv
 # load_dotenv()
@@ -21,8 +22,24 @@ def html_page(page_name):
 
 @app.route("/submit_form", methods=["POST", "GET"])
 def submit_form():
-    return 'form submitted hooorayyy!'
+    if request.method == "POST":
+        data = request.form.to_dict()
+        print(data)
+        return redirect("/thankyou.html")
+        # return "form submitted"
+    else:
+        return "Something went wrong. Try again!"
+    # return 'form submitted hooorayyy!'
 
+@app.route('/favicon.ico')
+def favicon():
+    if os.path.exists('static/assets/favicon.ico'):
+        return send_from_directory('static', 'assets', 'favicon.ico')
+    # if not, return a 404 error.
+    else:
+        abort(404)
+
+# If the file favicon.ico exists, put it in the static folder.
 
 # @app.route("/index.html")
 # def my_index():
