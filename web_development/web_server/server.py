@@ -24,12 +24,20 @@ def html_page(page_name):
 def submit_form():
     if request.method == "POST":
         data = request.form.to_dict()
-        print(data)
+        # print(data)
+        write_to_file(data)
         return redirect("/thankyou.html")
         # return "form submitted"
     else:
         return "Something went wrong. Try again!"
     # return 'form submitted hooorayyy!'
+
+def write_to_file(data):
+    with open("web_development\web_server\database.txt", mode="a") as database:
+        email = data["email"]
+        subject = data["subject"]
+        message = data["message"]
+        file = database.write(f"\n{email}, {subject}, {message}")    
 
 @app.route('/favicon.ico')
 def favicon():
@@ -37,7 +45,7 @@ def favicon():
         return send_from_directory('static', 'assets', 'favicon.ico')
     # if not, return a 404 error.
     else:
-        abort(404)
+        abort(404)    
 
 # If the file favicon.ico exists, put it in the static folder.
 

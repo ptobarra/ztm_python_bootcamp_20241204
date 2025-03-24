@@ -1,0 +1,3 @@
+email.subject,message
+ptobarra@proton.me, this is a test, 20250324
+ptobarra@gmail.com, this is a second test, 20250325
