@@ -1,5 +1,6 @@
 from flask import Flask, render_template, send_from_directory, url_for, request, abort, redirect
 import os
+import csv
 
 # from dotenv import load_dotenv
 # load_dotenv()
@@ -24,8 +25,9 @@ def html_page(page_name):
 def submit_form():
     if request.method == "POST":
         data = request.form.to_dict()
-        # print(data)
-        write_to_file(data)
+        # print(data)  # Debugging: Check the data
+        # write_to_file(data)
+        write_to_csv(data)
         return redirect("/thankyou.html")
         # return "form submitted"
     else:
@@ -33,11 +35,19 @@ def submit_form():
     # return 'form submitted hooorayyy!'
 
 def write_to_file(data):
-    with open("web_development\web_server\database.txt", mode="a") as database:
+    with open("database.txt", mode="a") as database:
         email = data["email"]
         subject = data["subject"]
         message = data["message"]
-        file = database.write(f"\n{email}, {subject}, {message}")    
+        file = database.write(f"\n{email}, {subject}, {message}")
+
+def write_to_csv(data):
+    with open("database.csv", mode="a", newline="") as database2:
+        email = data["email"]
+        subject = data["subject"]
+        message = data["message"]
+        csv_writer = csv.writer(database2, delimiter=",", quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        csv_writer.writerow([email, subject, message])
 
 @app.route('/favicon.ico')
 def favicon():

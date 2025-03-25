@@ -1,4 +1,4 @@
-
-ptobarra@proton.me, this is a test, 20250324
-ptobarra@proton.me, this is a test, 20250324
-ptobarra@proton.me, this is a test, 20250324
+email,subject,message
+ptobarra@gmail.com, 1111, 1111 message for txt
+ptobarra@gmail.com, 2222, 2222 message for txt
+final@final.com, final txt subject, final txt message
