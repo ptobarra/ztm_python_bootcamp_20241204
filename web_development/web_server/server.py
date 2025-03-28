@@ -15,6 +15,9 @@ def my_home():
     return render_template("./index.html")
     # return "<p>Hello !!!!!!!!!!!</p>"
 
+# http://127.0.0.1:5000/contact.html
+# http://localhost:5000/contact.html
+
 
 @app.route("/<string:page_name>")
 def html_page(page_name):    
@@ -24,12 +27,14 @@ def html_page(page_name):
 @app.route("/submit_form", methods=["POST", "GET"])
 def submit_form():
     if request.method == "POST":
-        data = request.form.to_dict()
-        # print(data)  # Debugging: Check the data
-        # write_to_file(data)
-        write_to_csv(data)
-        return redirect("/thankyou.html")
-        # return "form submitted"
+        try:
+            data = request.form.to_dict()
+            # print(data)  # Debugging: Check the data
+            # write_to_file(data)
+            write_to_csv(data)
+            return redirect("/thankyou.html")
+        except:
+            return "Did not save to database"        
     else:
         return "Something went wrong. Try again!"
     # return 'form submitted hooorayyy!'
@@ -124,3 +129,10 @@ def favicon():
 # set FLASK_ENV=development
 
 # python -m flask run --debug
+
+# sites from web_development/building_a_portfolio_8
+# https://www.pythonanywhere.com/user/ptobarra/webapps/#tab_id_ptobarra_pythonanywhere_com
+# https://ptobarra.pythonanywhere.com/
+# https://github.com/ptobarra/ztm_porfolio_20250328/tree/main
+# https://help.pythonanywhere.com/pages/Flask/
+# C:\Users\ptoba\OneDrive\zero to mastery 20221030\ztm_porfolio_20250328\ztm_porfolio_20250328
