@@ -1,3 +1,7 @@
+# https://www.qafox.com/selenium/selenium-practice/
+# https://selenium-python.readthedocs.io/index.html
+
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
