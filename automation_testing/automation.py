@@ -89,5 +89,6 @@ for button in buttons:
 
 # Prevent the browser from closing immediately
 input("press enter to close the browser...")
-chrome_browser.quit()
-
+chrome_browser.close() # this should close the browser
+# chrome_browser.quit() # you close the browser and end the session, the entire chrome_browser (or driver) object is destroyed
+# we may have to call the 2 commands above twice to close the browser and/or end the session depending on the browser and the OS we are using
